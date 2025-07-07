@@ -15,6 +15,12 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+
+        /* Dimensiones exactas simulando la pantalla de un celular */
+        .phone-frame {
+            width: 360px;
+            height: 640px;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
@@ -23,7 +29,7 @@
     <div class="min-h-screen flex items-center justify-center p-4">
 
         <!-- Tarjeta principal del juego, con diseño vertical -->
-        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center">
+        <div class="phone-frame bg-white rounded-2xl shadow-2xl p-6 flex flex-col text-center">
 
             <!-- Contenedor para la imagen o GIF -->
             <div class="mb-8">
@@ -36,7 +42,7 @@
                 <img 
                   src="01.gif" 
                   alt="Animación de bienvenida" 
-                  class="rounded-2xl w-full h-auto object-cover border-4 border-gray-900"
+                  class="rounded-2xl w-full h-64 object-cover border-4 border-gray-900"
                   onerror="this.onerror=null;this.src='https://placehold.co/400x400/000000/ffffff?text=Tu+GIF+aquí';"
                 >
             </div>
@@ -47,7 +53,7 @@
             </h1>
 
             <!-- Botón de inicio -->
-            <button class="w-full bg-gray-900 text-white font-bold py-4 px-6 rounded-xl text-2xl hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 transition-transform transform hover:scale-105 duration-300 ease-in-out">
+            <button class="mt-auto w-full bg-gray-900 text-white font-bold py-4 px-6 rounded-xl text-2xl hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 transition-transform transform hover:scale-105 duration-300 ease-in-out">
                 Comienza
             </button>
 
