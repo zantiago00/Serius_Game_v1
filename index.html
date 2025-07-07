@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Storytelling - Bienvenida</title>
+    <!-- Incluyendo Tailwind CSS para un diseño moderno y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Usando la fuente Inter para un look limpio -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Aplicando la fuente a todo el cuerpo del documento */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Contenedor principal que centra todo el contenido en la pantalla -->
+    <div class="min-h-screen flex items-center justify-center p-4">
+
+        <!-- Tarjeta principal del juego, con diseño vertical -->
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center">
+
+            <!-- Contenedor para la imagen o GIF -->
+            <div class="mb-8">
+                <!-- 
+                  INSTRUCCIÓN PARA EL GIF:
+                  Para usar tu propio GIF, guárdalo en la misma carpeta que este archivo HTML.
+                  Luego, cambia la URL en el atributo 'src' de abajo por el nombre de tu archivo.
+                  Por ejemplo: src="mi-animacion.gif"
+                -->
+                <img 
+                  src="01.gif" 
+                  alt="Animación de bienvenida" 
+                  class="rounded-2xl w-full h-auto object-cover border-4 border-gray-900"
+                  onerror="this.onerror=null;this.src='https://placehold.co/400x400/000000/ffffff?text=Tu+GIF+aquí';"
+                >
+            </div>
+
+            <!-- Título del juego -->
+            <h1 class="text-4xl md:text-5xl font-black text-gray-800 mb-8">
+                Digital Storytelling
+            </h1>
+
+            <!-- Botón de inicio -->
+            <button class="w-full bg-gray-900 text-white font-bold py-4 px-6 rounded-xl text-2xl hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 transition-transform transform hover:scale-105 duration-300 ease-in-out">
+                Comienza
+            </button>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
