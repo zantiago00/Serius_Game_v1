@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Storytelling - Bienvenida</title>
+    <title>Digital Storytelling - Juego</title>
     <!-- Incluyendo Tailwind CSS para un diseño moderno y responsivo -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,39 +27,78 @@
 
     <!-- Contenedor principal que centra todo el contenido en la pantalla -->
     <div class="min-h-screen flex items-center justify-center p-4">
-
         <!-- Tarjeta principal del juego, con diseño vertical -->
-        <div class="phone-frame bg-white rounded-2xl shadow-2xl p-6 flex flex-col text-center">
+        <div id="game" class="phone-frame bg-white rounded-2xl shadow-2xl p-6 flex flex-col text-center">
 
-            <!-- Contenedor para la imagen o GIF -->
-            <div class="mb-8">
-                <!-- 
-                  INSTRUCCIÓN PARA EL GIF:
-                  Para usar tu propio GIF, guárdalo en la misma carpeta que este archivo HTML.
-                  Luego, cambia la URL en el atributo 'src' de abajo por el nombre de tu archivo.
-                  Por ejemplo: src="mi-animacion.gif"
-                -->
-                <img 
-                  src="01.gif" 
-                  alt="Animación de bienvenida" 
-                  class="rounded-2xl w-full h-64 object-cover border-4 border-gray-900"
-                  onerror="this.onerror=null;this.src='https://placehold.co/400x400/000000/ffffff?text=Tu+GIF+aquí';"
-                >
+            <!-- Pantalla de inicio -->
+            <div id="start-screen" class="flex flex-col h-full">
+                <div class="mb-8">
+                    <img
+                        src="01.gif"
+                        alt="Animación de bienvenida"
+                        class="rounded-2xl w-full h-64 object-cover border-4 border-gray-900"
+                        onerror="this.onerror=null;this.src='https://placehold.co/400x400/000000/ffffff?text=Tu+GIF+aquí';"
+                    >
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black text-gray-800 mb-8">
+                    Digital Storytelling
+                </h1>
+                <button onclick="startGame()" class="mt-auto w-full bg-gray-900 text-white font-bold py-4 px-6 rounded-xl text-2xl hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 transition-transform transform hover:scale-105 duration-300 ease-in-out">
+                    Comienza
+                </button>
             </div>
 
-            <!-- Título del juego -->
-            <h1 class="text-4xl md:text-5xl font-black text-gray-800 mb-8">
-                Digital Storytelling
-            </h1>
-
-            <!-- Botón de inicio -->
-            <button class="mt-auto w-full bg-gray-900 text-white font-bold py-4 px-6 rounded-xl text-2xl hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 transition-transform transform hover:scale-105 duration-300 ease-in-out">
-                Comienza
-            </button>
+            <!-- Pantalla de historia -->
+            <div id="story-screen" class="hidden flex-col h-full">
+                <img id="slide-image" class="rounded-2xl w-full h-64 object-contain mb-4 border-4 border-gray-900" src="" alt="">
+                <p id="slide-text" class="text-lg text-gray-700 mb-4"></p>
+                <button id="next-btn" onclick="nextSlide()" class="mt-auto w-full bg-gray-900 text-white font-bold py-4 px-6 rounded-xl text-2xl hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300">Siguiente</button>
+            </div>
 
         </div>
-
     </div>
+
+    <script>
+        const slides = [
+            { image: '1.png', text: 'Escena 1: Observa la imagen.' },
+            { image: '2.png', text: 'Escena 2: Continúa la aventura.' },
+            { image: '3.png', text: 'Escena 3: Analiza lo que ocurre.' },
+            { image: '4.png', text: 'Escena 4: Reflexiona sobre la situación.' },
+            { image: '5.png', text: 'Escena 5: ¿Qué harías tú?' },
+            { image: '6.png', text: 'Escena 6: Elige el mejor camino.' },
+            { image: '7.png', text: 'Escena 7: Observa los resultados.' },
+            { image: '8.png', text: 'Escena 8: Toma una decisión.' },
+            { image: '9.png', text: 'Escena 9: Evalúa la consecuencia.' },
+            { image: '10.png', text: 'Escena 10: Aprende de la experiencia.' },
+            { image: '11.png', text: 'Escena 11: Comparte tus conclusiones.' },
+            { image: '12.png', text: 'Escena 12: Fin de la historia.' }
+        ];
+
+        let currentSlide = 0;
+
+        function startGame() {
+            document.getElementById('start-screen').classList.add('hidden');
+            const story = document.getElementById('story-screen');
+            story.classList.remove('hidden');
+            currentSlide = 0;
+            showSlide(currentSlide);
+        }
+
+        function showSlide(index) {
+            const slide = slides[index];
+            document.getElementById('slide-image').src = slide.image;
+            document.getElementById('slide-text').textContent = slide.text;
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= slides.length) {
+                document.getElementById('story-screen').innerHTML = '<p class="text-2xl font-bold">¡Gracias por jugar!</p>';
+            } else {
+                showSlide(currentSlide);
+            }
+        }
+    </script>
 
 </body>
 </html>
